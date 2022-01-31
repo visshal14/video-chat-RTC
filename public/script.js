@@ -14,6 +14,7 @@ const myPeer = new Peer(undefined, {
     // port:'3001' || process.env.PORT
 
 })
+
 const peers = {}
 let userStream
 
@@ -40,6 +41,9 @@ navigator.mediaDevices.getUserMedia({
     })
 })
 
+
+
+
 function hideCam(){
     const videoTrack = userStream.getTracks().find(track=>track.kind==="video")
     if(videoTrack.enabled){
@@ -54,24 +58,6 @@ function hideCam(){
 
 
 
-// navigator.mediaDevices.getDisplayMedia({
-//     audio:true,
-//     video:true
-// }).then(stream=>{
-//     myScreen.srcObject = stream
-//     myScreen.addEventListener("loadedmetadata",()=>{
-//         myScreen.play()
-//     })
-//     screenGrid.append(myScreen)
-//     //addScreenStream(myVideo,streams)
-// })
-// function addScreenStream(video,stream){
-//     video.srcObject = stream
-//     video.addEventListener("loadedmetadata", () => {
-//         video.play()
-//     })
-//     screenGrid.append(video)
-// }
 
 
 
