@@ -1,17 +1,12 @@
-//const { PeerServer } = require("peer")
-
 const socket = io("/")
 
 const videoGrid = document.getElementById("video-grid")
-
-// const screenGrid = document.getElementById("screen-grid")
 const myVideo = document.createElement("video")
-// const myScreen = document.createElement("video")
 myVideo.muted = true
-// socket.emit('join-room',ROOM_ID,10)
 const myPeer = new Peer(undefined, {
+    path: "/peerjs",
     host: "/",
-    // port:'3001' || process.env.PORT
+    port: "3000",//same as your localhosthost port
 
 })
 
@@ -44,13 +39,13 @@ navigator.mediaDevices.getUserMedia({
 
 
 
-function hideCam(){
-    const videoTrack = userStream.getTracks().find(track=>track.kind==="video")
-    if(videoTrack.enabled){
+function hideCam() {
+    const videoTrack = userStream.getTracks().find(track => track.kind === "video")
+    if (videoTrack.enabled) {
         videoTrack.enabled = false
         this.innerHTML = "Show Cam"
     }
-    else{
+    else {
         videoTrack.enabled = true
         this.innerHTML = "hide Cam"
     }
@@ -68,7 +63,7 @@ myPeer.on("open", id => {
 socket.on("user-connected", userId => {
     console.log("user-connected" + userId)
 })
-socket.on("user-disconnect",(userId)=>{
+socket.on("user-disconnect", (userId) => {
     console.log("user disconnected :" + userId)
 })
 socket.on("user-disconnect", (userId) => {
