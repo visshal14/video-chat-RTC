@@ -1,5 +1,5 @@
 # video-chat-RTC
-This is a simple project for peerjs. It a implementation of WEBRTC using peerjs, peerServer and socket.io. Video as well as audio is sharing peer to peer.
+This is a simple project for peerjs. It's a implementation of WEBRTC using peerjs, peerServer and socket.io. Video as well as audio is sharing peer to peer.
 
 ## To run this project
 * Fork this project
